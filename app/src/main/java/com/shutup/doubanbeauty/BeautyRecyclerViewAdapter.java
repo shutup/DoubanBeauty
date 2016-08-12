@@ -1,5 +1,6 @@
 package com.shutup.doubanbeauty;
 
+import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -102,7 +103,7 @@ public class BeautyRecyclerViewAdapter extends RecyclerView.Adapter implements C
             BeautyViewHolder beautyViewHolder = (BeautyViewHolder) holder;
             BeautyModel beautyModel = mBeautyModels.get(position);
             beautyViewHolder.mBeautyItemTitle.setText(beautyModel.getTitle());
-            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).into(beautyViewHolder.mBeautyItemImage);
+            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).placeholder(R.drawable.image_placeholder).into(beautyViewHolder.mBeautyItemImage);
 
         } else if (mLayoutManager instanceof StaggeredGridLayoutManager) {
             BeautyViewHolder beautyViewHolder = (BeautyViewHolder) holder;
@@ -116,13 +117,13 @@ public class BeautyRecyclerViewAdapter extends RecyclerView.Adapter implements C
 
             BeautyModel beautyModel = mBeautyModels.get(position);
             beautyViewHolder.mBeautyItemTitle.setText(beautyModel.getTitle());
-            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).into(beautyViewHolder.mBeautyItemImage);
+            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).placeholder(R.drawable.image_placeholder).into(beautyViewHolder.mBeautyItemImage);
 
         } else if (mLayoutManager instanceof GridLayoutManager) {
             BeautyViewHolder beautyViewHolder = (BeautyViewHolder) holder;
             BeautyModel beautyModel = mBeautyModels.get(position);
             beautyViewHolder.mBeautyItemTitle.setText(beautyModel.getTitle());
-            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).into(beautyViewHolder.mBeautyItemImage);
+            Picasso.with(beautyViewHolder.mBeautyItemImage.getContext()).load(beautyModel.getImageUrl()).placeholder(R.drawable.image_placeholder).into(beautyViewHolder.mBeautyItemImage);
         }
 
     }

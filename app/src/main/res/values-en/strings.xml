@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="toolbar_title_str">DoubanBeauty</string>
+    <string name="cid_type_all">All</string>
+    <string name="cid_type_2">Big Chest</string>
+    <string name="cid_type_3">Beautiful Leg</string>
+    <string name="cid_type_4">Beautiful Face</string>
+    <string name="cid_type_5">Hodgepodge</string>
+    <string name="cid_type_6">Little Bottom</string>
+    <string name="cid_type_7">Black Stocking</string>
+    <string name="app_name">Douban Beauty</string>
+</resources>

@@ -27,13 +27,13 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.inject(this);
 
         mTabTitles = new ArrayList<>();
-        mTabTitles.add("全部");
-        mTabTitles.add("大胸妹");
-        mTabTitles.add("美腿控");
-        mTabTitles.add("有颜值");
-        mTabTitles.add("大杂烩");
-        mTabTitles.add("小翘臀");
-        mTabTitles.add("黑丝袜");
+        mTabTitles.add(getString(R.string.cid_type_all));
+        mTabTitles.add(getString(R.string.cid_type_2));
+        mTabTitles.add(getString(R.string.cid_type_3));
+        mTabTitles.add(getString(R.string.cid_type_4));
+        mTabTitles.add(getString(R.string.cid_type_5));
+        mTabTitles.add(getString(R.string.cid_type_6));
+        mTabTitles.add(getString(R.string.cid_type_7));
 
         mFragmentList = new ArrayList<>();
         BeautyTypeAllFragment beautyTypeAllFragment = new BeautyTypeAllFragment();
