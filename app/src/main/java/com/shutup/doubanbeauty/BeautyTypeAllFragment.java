@@ -36,6 +36,7 @@ import rx.schedulers.Schedulers;
 public class BeautyTypeAllFragment extends BaseFragment {
 
     String TAG = this.getClass().getSimpleName();
+    String CID = CID_1;
 
     @InjectView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -50,14 +51,14 @@ public class BeautyTypeAllFragment extends BaseFragment {
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Map<String, String> option = getQueryMap(CID_1, 1);
+                Map<String, String> option = getQueryMap(CID, 1);
                 loadBeautyData(option);
             }
         });
 
         initRecyclerView();
 
-        Map<String, String> option = getQueryMap(CID_1, pager_offset);
+        Map<String, String> option = getQueryMap(CID, pager_offset);
         loadBeautyData(option);
         return view;
     }
@@ -76,7 +77,7 @@ public class BeautyTypeAllFragment extends BaseFragment {
     public void loadBeautyData(Map<String, String> option) {
         doubanBeautyService.beautyList(option).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).map(new Func1<Response<ResponseBody>, ArrayList<BeautyModel>>() {
-            ArrayList<BeautyModel> result = new ArrayList<BeautyModel>();
+            ArrayList<BeautyModel> result = new ArrayList<>();
 
             @Override
             public ArrayList<BeautyModel> call(Response<ResponseBody> responseBodyResponse) {
@@ -139,7 +140,7 @@ public class BeautyTypeAllFragment extends BaseFragment {
                 if (isLastLoadMoreOk) {
                     pager_offset++;
                 }
-                Map<String, String> option = getQueryMap(CID_1, pager_offset);
+                Map<String, String> option = getQueryMap(CID, pager_offset);
                 loadBeautyData(option);
             }
         });

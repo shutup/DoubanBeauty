@@ -28,13 +28,28 @@ public class MainActivity extends AppCompatActivity {
 
         mTabTitles = new ArrayList<>();
         mTabTitles.add("全部");
-        mTabTitles.add("2");
+        mTabTitles.add("大胸妹");
+        mTabTitles.add("美腿控");
+        mTabTitles.add("有颜值");
+        mTabTitles.add("大杂烩");
+        mTabTitles.add("小翘臀");
+        mTabTitles.add("黑丝袜");
 
         mFragmentList = new ArrayList<>();
         BeautyTypeAllFragment beautyTypeAllFragment = new BeautyTypeAllFragment();
         mFragmentList.add(beautyTypeAllFragment);
         BeautyType2Fragment beautyType2Fragment = new BeautyType2Fragment();
         mFragmentList.add(beautyType2Fragment);
+        BeautyType3Fragment beautyType3Fragment = new BeautyType3Fragment();
+        mFragmentList.add(beautyType3Fragment);
+        BeautyType4Fragment beautyType4Fragment = new BeautyType4Fragment();
+        mFragmentList.add(beautyType4Fragment);
+        BeautyType5Fragment beautyType5Fragment = new BeautyType5Fragment();
+        mFragmentList.add(beautyType5Fragment);
+        BeautyType6Fragment beautyType6Fragment = new BeautyType6Fragment();
+        mFragmentList.add(beautyType6Fragment);
+        BeautyType7Fragment beautyType7Fragment = new BeautyType7Fragment();
+        mFragmentList.add(beautyType7Fragment);
 
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override

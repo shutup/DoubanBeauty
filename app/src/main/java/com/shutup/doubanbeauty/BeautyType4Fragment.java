@@ -34,10 +34,10 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BeautyType2Fragment extends BaseFragment {
+public class BeautyType4Fragment extends BaseFragment {
 
     String TAG = this.getClass().getSimpleName();
-    String CID = CID_2;
+    String CID = CID_4;
 
     @InjectView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -48,7 +48,7 @@ public class BeautyType2Fragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_beauty_type2, container, false);
+        View view = inflater.inflate(R.layout.fragment_beauty_type4, container, false);
         ButterKnife.inject(this, view);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -71,7 +71,7 @@ public class BeautyType2Fragment extends BaseFragment {
         ButterKnife.reset(this);
     }
 
-    public BeautyType2Fragment() {
+    public BeautyType4Fragment() {
 
     }
 
