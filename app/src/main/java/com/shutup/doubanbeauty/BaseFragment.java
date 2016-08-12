@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import rx.Subscription;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -20,6 +22,7 @@ public abstract class BaseFragment extends Fragment implements Constants {
     static boolean isLastLoadMoreOk = false;
     int pager_offset = 1;
     protected DoubanBeautyService doubanBeautyService;
+    protected Subscription mSubscription;
 
     public BaseFragment() {
         BeautyApplication beautyApplication = BeautyApplication.getInstance();
@@ -37,4 +40,12 @@ public abstract class BaseFragment extends Fragment implements Constants {
     }
 
     public abstract void loadBeautyData(Map<String, String> option);
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mSubscription!=null && !mSubscription.isUnsubscribed()) {
+            mSubscription.unsubscribe();
+        }
+    }
 }

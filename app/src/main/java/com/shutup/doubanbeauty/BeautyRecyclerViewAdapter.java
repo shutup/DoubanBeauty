@@ -111,7 +111,12 @@ public class BeautyRecyclerViewAdapter extends RecyclerView.Adapter implements C
             }
 
             ViewGroup.LayoutParams layoutParams = beautyViewHolder.mBeautyItemImage.getLayoutParams();
-            layoutParams.height = heights.get(position);
+            if (heights.size() <= position ){
+                layoutParams.height = heights.get(heights.size() - 1);
+            }else {
+                layoutParams.height = heights.get(position);
+            }
+
             beautyViewHolder.mBeautyItemImage.setLayoutParams(layoutParams);
 
             BeautyModel beautyModel = mBeautyModels.get(position);

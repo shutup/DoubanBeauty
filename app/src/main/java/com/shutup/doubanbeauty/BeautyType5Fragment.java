@@ -77,7 +77,7 @@ public class BeautyType5Fragment extends BaseFragment {
 
     @Override
     public void loadBeautyData(Map<String, String> option) {
-        doubanBeautyService.beautyList(option).subscribeOn(Schedulers.io())
+        mSubscription = doubanBeautyService.beautyList(option).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).map(new Func1<Response<ResponseBody>, ArrayList<BeautyModel>>() {
             ArrayList<BeautyModel> result = new ArrayList<>();
 

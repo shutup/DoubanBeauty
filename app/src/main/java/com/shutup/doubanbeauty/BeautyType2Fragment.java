@@ -25,6 +25,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -68,6 +69,7 @@ public class BeautyType2Fragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+
         ButterKnife.reset(this);
     }
 
@@ -77,7 +79,7 @@ public class BeautyType2Fragment extends BaseFragment {
 
     @Override
     public void loadBeautyData(Map<String, String> option) {
-        doubanBeautyService.beautyList(option).subscribeOn(Schedulers.io())
+         mSubscription = doubanBeautyService.beautyList(option).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread()).map(new Func1<Response<ResponseBody>, ArrayList<BeautyModel>>() {
             ArrayList<BeautyModel> result = new ArrayList<>();
 
