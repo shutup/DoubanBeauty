@@ -23,6 +23,7 @@ import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import io.realm.Realm;
 import okhttp3.ResponseBody;
 import retrofit2.Response;
 import rx.Subscription;
@@ -39,6 +40,8 @@ public class BeautyType2Fragment extends BaseFragment {
 
     String TAG = this.getClass().getSimpleName();
     String CID = CID_2;
+
+    Realm mRealm = null;
 
     @InjectView(R.id.recyclerView)
     RecyclerView mRecyclerView;
@@ -60,10 +63,21 @@ public class BeautyType2Fragment extends BaseFragment {
         });
 
         initRecyclerView();
+        return view;
+    }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mRealm = Realm.getDefaultInstance();
         Map<String, String> option = getQueryMap(CID, pager_offset);
         loadBeautyData(option);
-        return view;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mRealm.close();
     }
 
     @Override

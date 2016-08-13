@@ -1,10 +1,16 @@
 package com.shutup.doubanbeauty;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by shutup on 16/8/9.
  */
-public class BeautyModel {
+public class BeautyModel extends RealmObject{
+
+    @PrimaryKey
     private String imageUrl;
+    private String title;
 
     public String getTitle() {
         return title;
@@ -22,7 +28,6 @@ public class BeautyModel {
         this.imageUrl = imageUrl;
     }
 
-    private String title;
 
     public BeautyModel(String imageUrl, String title) {
         this.imageUrl = imageUrl;
