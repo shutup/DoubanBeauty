@@ -17,4 +17,6 @@ public interface Constants {
     String CID_5 = "5";
     String CID_6 = "6";
     String CID_7 = "7";
+
+    String GirlDetailUrl = "GirlDetailUrl";
 }
