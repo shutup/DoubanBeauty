@@ -1,8 +1,13 @@
 package com.shutup.doubanbeauty;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,12 +17,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +43,8 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
+
+import static android.R.attr.path;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -180,7 +193,9 @@ public abstract class BaseFragment extends Fragment implements Constants {
 
             @Override
             public void onLongClick(View view, int position) {
-
+                BeautyViewHolder beautyViewHolder = (BeautyViewHolder) mRecyclerView.getChildViewHolder(view);
+                ImageUtils.saveImageToGallery(getActivity(),beautyViewHolder.mBeautyItemImage);
+                Toast.makeText(getActivity(), R.string.image_saved_str, Toast.LENGTH_SHORT).show();
             }
         }));
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
@@ -189,4 +204,5 @@ public abstract class BaseFragment extends Fragment implements Constants {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setAdapter(mBeautyRecyclerViewAdapter);
     }
+
 }

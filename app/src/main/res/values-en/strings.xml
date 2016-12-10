@@ -9,4 +9,5 @@
     <string name="cid_type_6">Little Bottom</string>
     <string name="cid_type_7">Black Stocking</string>
     <string name="app_name">Douban Beauty</string>
+    <string name="image_saved_str">photo saved</string>
 </resources>
