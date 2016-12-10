@@ -1,6 +1,7 @@
 package com.shutup.doubanbeauty;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -41,8 +42,6 @@ public class BeautyType2Fragment extends BaseFragment {
     String TAG = this.getClass().getSimpleName();
     String CID = CID_2;
 
-    Realm mRealm = null;
-
     @InjectView(R.id.recyclerView)
     RecyclerView mRecyclerView;
     @InjectView(R.id.swipeRefreshLayout)
@@ -69,7 +68,7 @@ public class BeautyType2Fragment extends BaseFragment {
     @Override
     public void onStart() {
         super.onStart();
-        mRealm = Realm.getDefaultInstance();
+        mContext = getActivity();
         Map<String, String> option = getQueryMap(CID, pager_offset);
         loadBeautyData(option);
     }
@@ -77,7 +76,6 @@ public class BeautyType2Fragment extends BaseFragment {
     @Override
     public void onStop() {
         super.onStop();
-        mRealm.close();
     }
 
     @Override
@@ -163,6 +161,19 @@ public class BeautyType2Fragment extends BaseFragment {
                 loadBeautyData(option);
             }
         });
+        mRecyclerView.addOnItemTouchListener(new RecyclerViewTouchListener(this.getContext(), mRecyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                if (BuildConfig.DEBUG) Log.d("BeautyType2Fragment", "position:" + position);
+                BeautyModel beautyModel = mBeautyRecyclerViewAdapter.getBeautyModels().get(position);
+                startActivity(new Intent(mContext,BeautyDetailActivity.class));
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
                 StaggeredGridLayoutManager.VERTICAL));

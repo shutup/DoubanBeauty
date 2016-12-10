@@ -1,6 +1,7 @@
 package com.shutup.doubanbeauty;
 
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 
@@ -23,6 +24,7 @@ public abstract class BaseFragment extends Fragment implements Constants {
     int pager_offset = 1;
     protected DoubanBeautyService doubanBeautyService;
     protected Subscription mSubscription;
+    protected Context mContext;
 
     public BaseFragment() {
         BeautyApplication beautyApplication = BeautyApplication.getInstance();

@@ -1,16 +1,13 @@
 package com.shutup.doubanbeauty;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
-
 /**
  * Created by shutup on 16/8/9.
  */
-public class BeautyModel extends RealmObject{
+public class BeautyModel {
 
-    @PrimaryKey
     private String imageUrl;
     private String title;
+
 
     public String getTitle() {
         return title;
